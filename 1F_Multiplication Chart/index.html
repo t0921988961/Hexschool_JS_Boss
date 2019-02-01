@@ -25,40 +25,39 @@
         <div class="title_line color_green"></div>
       </div>
       <!-- 九九乘法 -->
-      <div class="white_block block color_green">
+      <!-- <div class="white_block block color_green">
         <div class="white_block_title">
           2
         </div>
         <div class="white_block_font color_green">
           2 × 1 ＝ 2
         </div>
-        <div class="white_block_font color_green">
-          2 × 1 ＝ 2
-        </div>
-        <div class="white_block_font color_green">
-          2 × 1 ＝ 2
-        </div>
-        <div class="white_block_font color_green">
-          2 × 1 ＝ 2
-        </div>
-        <div class="white_block_font color_green">
-          2 × 1 ＝ 2
-        </div>
-        <div class="white_block_font color_green">
-          2 × 1 ＝ 2
-        </div>
-        <div class="white_block_font color_green">
-          2 × 1 ＝ 2
-        </div>
-        <div class="white_block_font color_green">
-          2 × 1 ＝ 2
-        </div>
-        <div class="white_block_font color_green">
-          2 × 1 ＝ 2
-        </div>
-      </div>
+      </div> -->
     </div>
 
-    <scirpt src="js/main.js"></scirpt>
+    <!-- <scirpt src="js/main.js"></scirpt> -->
+    <script>
+      (function() {
+        let html = '';
+
+        for (let i = 2; i <= 9; i++) {
+          html += `<div class="white_block block color_green">
+              <div class="white_block_title">
+                ${i}
+              </div>
+            `;
+          for (let j = 1; j <= 9; j++) {
+            console.log(`${i} X ${j} = ${i * j}`);
+            html += ` <div class="white_block_font color_green">
+                ${i} ×  ${j} ＝ ${i * j}
+               </div>`;
+          }
+          html += `</div>`;
+        }
+
+        const list = document.querySelector('.wrap');
+        list.innerHTML += html;
+      })();
+    </script>
   </body>
 </html>

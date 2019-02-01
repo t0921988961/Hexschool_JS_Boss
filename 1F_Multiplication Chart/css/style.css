@@ -301,11 +301,15 @@ section {
   font-family: 'Helvetica Neue';
   font-size: 128px;
   font-weight: bold;
+  text-shadow: 4px 3px 0px #f0f0f0;
 }
 
 .white_block .white_block_font {
   font-size: 24px;
   margin-bottom: 12px;
+  -ms-flex-item-align: start;
+      -ms-grid-row-align: start;
+      align-self: start;
 }
 
 .white_block .white_block_font:nth-child(10) {
