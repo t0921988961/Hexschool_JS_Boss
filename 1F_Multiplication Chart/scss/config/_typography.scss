@@ -19,7 +19,12 @@ html,
 body,
 ul,
 li,
-a {
+a,
+main,
+footer,
+head,
+header,
+section {
   font-family: $font-family;
   list-style: none;
   text-decoration: none;

@@ -11,8 +11,8 @@
   }
 }
 
-@mixin b768 {
-  @media (max-width: 768px) {
+@mixin b767 {
+  @media (max-width: 767px) {
     @content;
   }
 }
