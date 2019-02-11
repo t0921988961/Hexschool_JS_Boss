@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Hexschool_JS_BOSS_3F_計算機 -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Hexschool_JS_BOSS_3F</title>
+    <meta name="title" content="3F_計算機" />
+    <!-- <meta name="description" content="汽車保險可以附加的險種這麼多,大家最常附加的是那些險種?保險金額通常又是選多少?" /> -->
+    <!-- <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon" /> -->
+    <link rel="stylesheet" href="dist/style.min.css" />
+  </head>
+  <body>
+    <div class="wrap ">
+      <div class="clock">
+        <img src="img/hour-hand.svg" class="hour hand">
+        <img src="img/minute-hand.svg" class="minute hand">
+        <img src="img/second-hand.svg" class="second hand">
+      </img>
+    </img>
+
+    <!-- <scirpt src="js/main.js"></scirpt> -->
+    <script>
+      const hourHandler = document.querySelector('.hour');
+      const minuteHandler = document.querySelector('.minute');
+      const secondHandler = document.querySelector('.second');
+
+      function nowDate(){
+        const date = new Date();
+
+
+        //秒針
+        const seconds = date.getSeconds();
+        // console.log('seconds:'+seconds)
+        const secondsDeg = ((seconds / 60) * 360) + 180;
+        // console.log('secondsDeg:' + secondsDeg)
+        secondHandler.style.transform = `rotate(${secondsDeg}deg)`;
+        //修正 秒針到60秒時閃跳 
+        if(secondsDeg === 180){
+          secondHandler.style.transition = 'all 0s'
+        }else{
+          secondHandler.style.transition = 'all 0.05s cubic-bezier(0, 2.95, 1, 1)'
+        }
+
+
+        //分針
+        const minute = date.getMinutes();
+        // console.log('minutes:'+ minute)
+        const minutesDeg = (360 / 60) * minute + 180;
+        // console.log('minuesDeg:' + minuesDeg)
+        minuteHandler.style.transform = `rotate(${minutesDeg}deg)`;
+        //修正 分針到60分時閃跳 
+        if (minutesDeg === 180) {
+          minuteHandler.style.transition = 'all 0s'
+        } else {
+          minuteHandler.style.transition = 'all 0.05s cubic-bezier(0, 2.95, 1, 1)'
+        }
+
+        //時針
+        const hour = date.getHours();
+        console.log('hour:'+ hour);
+        const hourDeg = ((360 / 12) * hour) + 270;
+        console.log('hourDeg:' + hourDeg)
+        hourHandler.style.transform=`rotate(${hourDeg}deg)`;
+        //修正 時針到60分時閃跳 
+        if (hourDeg === 180) {
+          hourHandler.style.transition = 'all 0s'
+        } else {
+          hourHandler.style.transition = 'all 0.05s cubic-bezier(0, 2.95, 1, 1)'
+        }
+
+
+      }
+
+      //每秒執行一次，取得時間
+      setInterval(nowDate,1000);
+
+
+    
+    
+    </script>
+  </body>
+</html>

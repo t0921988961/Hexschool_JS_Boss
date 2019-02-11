@@ -1,0 +1,31 @@
+//font-size
+$font_45: 45px;
+$font_30: 30px;
+$font_28: 28px;
+$font_26: 26px;
+$font_24: 24px;
+$font_22: 22px;
+$font_20: 20px;
+$font_18: 18px;
+$font_16: 16px;
+$font_14: 14px;
+$font_12: 12px;
+
+//font
+$font-family: 'Microsoft JhengHei', Arial, Helvetica, sans-serif;
+
+//全域
+html,
+body,
+ul,
+li,
+a,
+main,
+footer,
+head,
+header,
+section {
+  font-family: $font-family;
+  list-style: none;
+  text-decoration: none;
+}
