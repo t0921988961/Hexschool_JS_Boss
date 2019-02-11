@@ -1,63 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-  <!-- Hexschool_JS_BOSS_1F_九九乘法表 -->
+  <!-- Hexschool_JS_BOSS_2F_時鐘 -->
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Hexschool_JS_BOSS_1F</title>
-    <meta name="title" content="1F 九九乘法表" />
+    <title>Hexschool_JS_BOSS_2F</title>
+    <meta name="title" content="2F_時鐘" />
     <!-- <meta name="description" content="汽車保險可以附加的險種這麼多,大家最常附加的是那些險種?保險金額通常又是選多少?" /> -->
     <!-- <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon" /> -->
     <link rel="stylesheet" href="dist/style.min.css" />
   </head>
   <body>
-    <div class="wrap">
-      <!-- 標題 -->
-      <div class="title block">
-        <div class="title_line color_green"></div>
-        <h1 class="title_font color_green">
-          九九乘法表
-          <span class="secTitle_font color_green">
-            MULTIPLICATION CHART
-          </span>
-        </h1>
-        <div class="title_line color_green"></div>
-      </div>
-      <!-- 九九乘法 -->
-      <!-- <div class="white_block block color_green">
-        <div class="white_block_title">
-          2
-        </div>
-        <div class="white_block_font color_green">
-          2 × 1 ＝ 2
-        </div>
-      </div> -->
-    </div>
+    <div class="wrap ">
+      <div class="clock">
+        <img src="img/hour-hand.svg" class="hour hand">
+        <img src="img/minute-hand.svg" class="minute hand">
+        <img src="img/second-hand.svg" class="second hand">
+      </img>
+    </img>
 
     <!-- <scirpt src="js/main.js"></scirpt> -->
     <script>
-      (function() {
-        let html = '';
+      const hourHandler = document.querySelector('.hour');
+      const minuteHandler = document.querySelector('.minute');
+      const secondHandler = document.querySelector('.second');
 
-        for (let i = 2; i <= 9; i++) {
-          html += `<div class="white_block block color_green">
-              <div class="white_block_title">
-                ${i}
-              </div>
-            `;
-          for (let j = 1; j <= 9; j++) {
-            console.log(`${i} X ${j} = ${i * j}`);
-            html += ` <div class="white_block_font color_green">
-                ${i} ×  ${j} ＝ ${i * j}
-               </div>`;
-          }
-          html += `</div>`;
+      function nowDate(){
+        const date = new Date();
+
+
+        //秒針
+        const seconds = date.getSeconds();
+        // console.log('seconds:'+seconds)
+        const secondsDeg = ((seconds / 60) * 360) + 180;
+        // console.log('secondsDeg:' + secondsDeg)
+        secondHandler.style.transform = `rotate(${secondsDeg}deg)`;
+        //修正 秒針到60秒時閃跳 
+        if(secondsDeg === 180){
+          secondHandler.style.transition = 'all 0s'
+        }else{
+          secondHandler.style.transition = 'all 0.05s cubic-bezier(0, 2.95, 1, 1)'
         }
 
-        const list = document.querySelector('.wrap');
-        list.innerHTML += html;
-      })();
+
+        //分針
+        const minute = date.getMinutes();
+        // console.log('minutes:'+ minute)
+        const minutesDeg = (360 / 60) * minute + 180;
+        // console.log('minuesDeg:' + minuesDeg)
+        minuteHandler.style.transform = `rotate(${minutesDeg}deg)`;
+        //修正 分針到60分時閃跳 
+        if (minutesDeg === 180) {
+          minuteHandler.style.transition = 'all 0s'
+        } else {
+          minuteHandler.style.transition = 'all 0.05s cubic-bezier(0, 2.95, 1, 1)'
+        }
+
+        //時針
+        const hour = date.getHours();
+        console.log('hour:'+ hour);
+        const hourDeg = ((360 / 12) * hour) + 270;
+        console.log('hourDeg:' + hourDeg)
+        hourHandler.style.transform=`rotate(${hourDeg}deg)`;
+        //修正 時針到60分時閃跳 
+        if (hourDeg === 180) {
+          hourHandler.style.transition = 'all 0s'
+        } else {
+          hourHandler.style.transition = 'all 0.05s cubic-bezier(0, 2.95, 1, 1)'
+        }
+
+
+      }
+
+      //每秒執行一次，取得時間
+      setInterval(nowDate,1000);
+
+
+    
+    
     </script>
   </body>
 </html>
