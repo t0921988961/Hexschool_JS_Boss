@@ -12,17 +12,68 @@
     <link rel="stylesheet" href="dist/style.min.css" />
   </head>
   <body>
-    <div class="wrap ">
-      <div class="clock">
-        <img src="img/hour-hand.svg" class="hour hand">
-        <img src="img/minute-hand.svg" class="minute hand">
-        <img src="img/second-hand.svg" class="second hand">
-      </img>
-    </img>
+    <div class="calcBody">
+      <div class="calcResult">
+        <pre class="fun color_blue">1,280 × 30</pre>
+        <div class="ans">38,20</div>
+      </div>
+      <div class="calcInput">
+        <input class="calcBtn num" type="button" value="7">
+        <input class="calcBtn num" type="button" value="8">
+        <input class="calcBtn num" type="button" value="9">
+        <input class="calcBtn ope" type="button" value="÷">
+
+        <input class="calcBtn num" type="button" value="4">
+        <input class="calcBtn num" type="button" value="5">
+        <input class="calcBtn num" type="button" value="6">
+        <input class="calcBtn ope" type="button" value="×">
+
+        <input class="calcBtn num" type="button" value="1">
+        <input class="calcBtn num" type="button" value="2">
+        <input class="calcBtn num" type="button" value="3">
+        <input class="calcBtn ope" type="button" value="+">
+
+        <input class="calcBtn num" type="button" value="0">
+        <input class="calcBtn num" type="button" value="00">
+        <input class="calcBtn num" type="button" value=".">
+        <input class="calcBtn ope" type="button" value="-">
+
+        <input class="calcBtn ac " type="button" value="AC">
+        <input class="calcBtn del " type="button" value="del">
+        <input class="calcBtn equal bg_gradient" type="button" value="=">
+      </input>
+    </input>
 
     <!-- <scirpt src="js/main.js"></scirpt> -->
     <script>
+      //1.解決浮點數計算的問題（如：0.1+0.2）
+      //2.解決漸層文字
+      //3.不能除以0 or 00
+      //4.輸入算式時同時要出現結果
+      //5.刪除算式時同時要出現結果
+      //6.按完等於後也要可以按刪除鍵=
+      //7.算式和結果都要有三位一個逗號
 
+      (function() {
+        //保存輸入的算數
+        const fun = document.querySelector('.fun');
+        //運算結果
+        const ans = document.querySelector('.ans');
+        //選到輸入的全部元素
+        const calcNum = document.getElementsByClassName('.clacBtn')[0];
+
+        //給每一個按鈕添加 onclick 事件
+        for(let i = 0;i< calcNum.length; i++){
+          calcNum[i].onclick = function(){
+            //判斷按鈕
+            if(this.value == 'AC'{
+              j
+            })
+          }
+        }
+
+
+      })();
     </script>
   </body>
 </html>
