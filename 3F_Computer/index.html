@@ -3,7 +3,7 @@
   <!-- Hexschool_JS_BOSS_3F_計算機 -->
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,  user-scalable=no" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Hexschool_JS_BOSS_3F</title>
     <meta name="title" content="3F_計算機" />
@@ -14,7 +14,7 @@
   <body>
     <div class="calcBody">
       <div class="calcResult">
-        <pre class="fun color_blue">1,280 × 30</pre>
+        <div class="fun color_blue">1,280 × 30</div>
         <div class="ans">38,20</div>
       </div>
       <div class="calcInput">
@@ -56,21 +56,37 @@
 
       (function() {
         //保存輸入的算數
-        const fun = document.querySelector('.fun');
+        let fun = document.querySelector('.fun');
+        console.log('fun:'+ fun);
         //運算結果
-        const ans = document.querySelector('.ans');
+        let ans = document.querySelector('.ans')[0];
+        console.log('ans:' + ans);
         //選到輸入的全部元素
-        const calcNum = document.getElementsByClassName('.clacBtn')[0];
+        let calc_Btn = document.getElementsByClassName('.calcBtn');
+        console.log('calc_Btn:' + calc_Btn);
+        //清空按鈕
+        let Ac_Hanler = document.querySelector('.ac');
+        //退格按鈕
+        let del_Hanler = document.querySelector('.del');
 
-        //給每一個按鈕添加 onclick 事件
-        for(let i = 0;i< calcNum.length; i++){
-          calcNum[i].onclick = function(){
-            //判斷按鈕
-            if(this.value == 'AC'{
-              j
-            })
-          }
+        //fun 清空按鈕 AC
+        function fun_ac(){
+          //清空數字
+          fun.innerHTML = '0';
+          ans.innerHTML = '0';
         }
+
+        //fun 退格按鈕 del
+        function fun_del(){
+          // substr() 截掉字串 1.從0開始  2.擷取多少長度
+          fun.innerHTML = fun.innerHTML.substr(0, fun.innerHTML.length - 1);
+          ans.innerHTML = ans.innerHTML.substr(0, ans.innerHTML.length - 1);
+        }
+
+        //AC 歸零
+        Ac_Hanler.addEventListener('click', fun_ac);
+        //del 刪除
+        del_Hanler.addEventListener('click', fun_del);
 
 
       })();
